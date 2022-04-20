@@ -1,0 +1,44 @@
+.wrapper {
+  margin-top: 30px;
+  height: 30vh;
+  background-color: #f3f3f3;
+}
+
+.container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 20vh;
+  background-color: #fff;
+  padding: 1em;
+  border-radius: 1em;
+  width: 1200px;
+  -webkit-box-shadow: 0px 17px 34px -20px #565656;
+  box-shadow: 0px 17px 34px -20px #565656;
+}
+
+.cardImg {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  margin-left: auto;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cardImg:hover {
+  opacity: 0.5;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    width: 400px;
+  }
+}

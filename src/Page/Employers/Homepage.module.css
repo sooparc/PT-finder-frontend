@@ -1,0 +1,59 @@
+.body {
+  height: 95vh;
+  background-color: rgba(33, 37, 41);
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+.header {
+  text-align: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../../Assets/backgroundImage.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60vh;
+}
+
+.card {
+  display: inline-block;
+  position: relative;
+  padding: 30px;
+  top: 90%;
+  width: 25%;
+  height: 270px;
+  margin: 0 auto;
+  margin-right: 50px;
+  animation: cards-appear 1s ease-out forwards;
+  overflow-y: hidden;
+}
+
+@keyframes cards-appear {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cardTitle {
+  font-weight: 600;
+}
+
+.cardText {
+  font-weight: 500;
+  color: #515151;
+}
+
+@media (max-width: 575.98px) {
+  .card {
+    display: block;
+    top: 70vh;
+    width: 80%;
+    margin-bottom: 30px;
+  }
+}

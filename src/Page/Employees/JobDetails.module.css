@@ -1,0 +1,123 @@
+.body {
+  background: #f5f5f5;
+  height: 95vh;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: justify-between;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  flex: 1;
+  background: #fff;
+  border-radius: 5px;
+  padding: 40px;
+  max-width: 555px;
+  border-right: 1px solid #ccc;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  justify-content: justify-between;
+  gap: 6px;
+  background: #8a8a8a;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0px 16px 25px -10px rgba(20, 20, 20, 0.2);
+}
+
+.notificationTitle {
+  color: white;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.notificationDesc {
+  color: white;
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+.notificationButton {
+  white-space: nowrap;
+  text-decoration: none;
+  font-weight: 400;
+  color: #262040;
+  background: #fff;
+  border-radius: 0.25rem;
+  padding: 10px 15px;
+  margin-left: 20px;
+  border: 0;
+  transition: all 0.3s;
+}
+
+.notificationButton:hover {
+  cursor: pointer;
+  background: rgba(#000, 0.1);
+}
+
+.menu {
+  margin-top: 20px;
+  display: flex;
+  justify-content: justify-between;
+  width: 100%;
+}
+
+.menuList {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+}
+
+.menuListTitle {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  color: #6f7189;
+  padding: 0 15px;
+}
+
+.menuListItem {
+  padding-top: 10px;
+  list-style: none;
+  text-align: center;
+  border-radius: 5px;
+  width: 100%;
+  transition: all linear 0.15s;
+}
+
+.menuListItem:hover {
+  background: #f5f5f5;
+}
+
+.menuListItem a {
+  text-decoration: none;
+  text-align: left;
+  font-weight: 300;
+  color: #171228;
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.mapBox {
+  background-color: #fff;
+  border-radius: 5px;
+  border-left: 1px solid #ccc;
+}
+
+.map {
+  margin-top: 40px;
+  flex: 1;
+  width: 500px;
+}

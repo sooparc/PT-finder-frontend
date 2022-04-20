@@ -1,0 +1,84 @@
+.body {
+  height: 70vh;
+  font-family: "Poppins", sans-serif;
+}
+
+.inputBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vh;
+  margin-bottom: 7vh;
+}
+
+.input1 {
+  padding: 5px;
+  border: 1px solid #959595;
+  border-radius: 5px;
+  width: 25%;
+  margin-right: 10px;
+}
+
+.input1:focus {
+  outline: none;
+}
+
+.input2 {
+  padding: 5px;
+  border: 1px solid #959595;
+  border-radius: 5px;
+  width: 15%;
+  margin-right: 10px;
+}
+
+.input2:focus {
+  outline: none;
+}
+
+.searchBtn {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #959595;
+}
+
+.card {
+  margin: 0 50px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #dcdcdc;
+  border-top: 3px solid #000;
+  box-shadow: 1px 5px 10px #dcdcdc;
+  margin-bottom: 30px;
+  color: #000;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+}
+
+.warningIcon {
+  margin-top: 15vh;
+  text-align: center;
+  font-size: 4rem;
+}
+
+.warning {
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.detailBtn {
+  padding: 7px;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-top: 15px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+}
+
+.detailBtn:hover {
+  border: 1px solid #959595;
+}

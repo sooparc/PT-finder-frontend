@@ -1,0 +1,14 @@
+.navbar {
+  color: #000;
+  margin-top: 10px;
+}
+
+.navbar:hover {
+  color: #000;
+}
+
+@media (max-width: 620px) {
+  .navbar {
+    width: 70%;
+  }
+}
