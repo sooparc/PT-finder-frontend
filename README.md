@@ -2,7 +2,7 @@
 
 This app was built using these technologies.
 
-Frontend - Netlify
+Frontend - Netlify\
 Backend - Heroku
 
 1. React JS
