@@ -11,6 +11,7 @@ Backend - Heroku
 4. HTML
 5. CSS
 
-Are you looking for part time jobs & one time jobs? Or are you looking to hire someone to work for you? Please check out my website below.
+Are you looking for part time jobs & one time jobs?\
+Or are you looking to hire someone to work for you? Please check out my website below.
 
 Website- https://deluxe-mermaid-f15a25.netlify.app/
