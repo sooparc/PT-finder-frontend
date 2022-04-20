@@ -13,6 +13,7 @@ const Home = () => {
   const axios = require("axios");
 
   useEffect(() => {
+    // bring companies data & user's saved jobs from MYSQL
     axios.get("https://pt-finder.herokuapp.com/companies").then((res) => {
       axios
         .get("https://pt-finder.herokuapp.com/likedjobs")
@@ -21,6 +22,7 @@ const Home = () => {
           let tempCompanies = res.data;
           let likedCompanies = liked.map((item) => item.company_name);
 
+          // bring user's saved jobs
           tempCompanies.forEach((e, index) => {
             if (likedCompanies.includes(e.company_name)) {
               tempCompanies[index]["isLiked"] = true;
@@ -39,7 +41,6 @@ const Home = () => {
 
     if (tempArr[index] && tempArr[index]["isLiked"]) {
       tempArr[index]["isLiked"] = false;
-
       axios
         .delete(`https://pt-finder.herokuapp.com/remove/${companyname}`)
         .then((response) => {
@@ -68,11 +69,13 @@ const Home = () => {
     setCompanies(tempArr);
   };
 
+  // go to clicked job details page
   const linkClickHandler = (data) => {
     let id = data.id;
     history.push(generatePath(`/jobdetails/${id}`));
   };
 
+  // show the list of liked jobs
   const Modal = () => {
     const filteredArr = companies.filter((e) => e.isLiked);
 

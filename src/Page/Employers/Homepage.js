@@ -6,7 +6,6 @@ import {
   faClock,
   faCreditCard,
 } from "@fortawesome/free-solid-svg-icons";
-import { collapseClasses } from "@mui/material";
 
 const Homepage = () => {
   const dog = <FontAwesomeIcon size="xl" icon={faDog} />;

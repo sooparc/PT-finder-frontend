@@ -39,6 +39,7 @@ const LikedJobs = () => {
       });
   };
 
+  // go to clicked job details page
   const btnClickHandler = (index) => {
     const newArr = [...liked];
     const id = newArr[index].id;

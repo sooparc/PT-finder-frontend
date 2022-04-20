@@ -20,7 +20,6 @@ const Profile = () => {
   const [showA, setShowA] = useState(false);
   const [userId, setUserId] = useState("");
   const email = <FontAwesomeIcon icon={faEnvelope} />;
-  const user = <FontAwesomeIcon icon={faUser} />;
   const trashCan = <FontAwesomeIcon icon={faTrashCan} />;
   const edit = <FontAwesomeIcon icon={faPenToSquare} />;
   const lock = <FontAwesomeIcon icon={faLock} />;
@@ -30,6 +29,7 @@ const Profile = () => {
 
   const history = useHistory();
 
+  // when the user clicks delete account button, the message pops up to ask again
   const toggleShowA = () => setShowA(!showA);
 
   useEffect(() => {
@@ -44,6 +44,7 @@ const Profile = () => {
     });
   }, []);
 
+  // The delete button in a message pop up. It will delete the user's account
   const deleteAccount = () => {
     axios
       .delete(`https://pt-finder.herokuapp.com/delete/${userId}`)

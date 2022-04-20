@@ -20,10 +20,12 @@ const Resume = () => {
   const [state, setState] = useState("");
   const [zipcode, setZipCode] = useState("");
   const [getId, setGetId] = useState("");
+  // To duplicate work experice input
   const [inputFields, setInputFields] = useState([
     { jobtitle: "", company: "", description: "", start: "", end: "" },
   ]);
 
+  // To bring user's data from MYSQL and it will show in the inputs
   const [firstnameRef, setFirstnameRef] = useState("");
   const [lastnameRef, setLastnameRef] = useState("");
   const [phoneRef, setPhoneRef] = useState("");
@@ -45,13 +47,14 @@ const Resume = () => {
     setInputFields(values);
   };
 
+  // duplicate work experience input form
   const addClickHandler = () => {
     setInputFields([
       ...inputFields,
       { jobtitle: "", company: "", description: "", start: "", end: "" },
     ]);
   };
-
+  // remove work experience input form
   const removeClickHandler = (index) => {
     const values = [...inputFields];
     values.splice(index, 1);
@@ -77,6 +80,7 @@ const Resume = () => {
 
   let id = getId;
 
+  // use axios put to post/edit user's information
   const saveClickHandler = (index, id) => {
     axios
       .put("https://pt-finder.herokuapp.com/editresume", {

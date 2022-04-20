@@ -3,6 +3,7 @@ import classes from "./SignUp.module.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
+// To make password stronger (at least 8 characters)
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 

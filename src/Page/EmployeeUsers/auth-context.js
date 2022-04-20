@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+// To make user's token, to use isLoggedIn
 const AuthContext = React.createContext({
   token: "",
   isLoggedIn: false,

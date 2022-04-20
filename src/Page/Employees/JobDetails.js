@@ -44,6 +44,8 @@ const JobDetails = () => {
     });
   }, []);
 
+  // if the user hasn't filled out a resume form, it will take the user to the resume page,
+  // otherwise it will send data to MYSQL that the user applied.
   const applyClickHandler = () => {
     if (selectedUser.firstname === null) {
       alert("Please fill out a resume form first !!");

@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import classes from "./Payment.module.css";
-import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faCropSimple } from "@fortawesome/free-solid-svg-icons";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { Modal, Button } from "react-bootstrap";
 
 const Payment = () => {
@@ -41,7 +40,6 @@ const Payment = () => {
       type: "card",
       card: elements.getElement(CardElement),
     });
-    console.log("Hi");
 
     axios
       .post("https://pt-finder.herokuapp.com/paymentInfo", {

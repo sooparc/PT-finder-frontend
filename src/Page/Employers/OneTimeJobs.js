@@ -19,6 +19,7 @@ const OneTimeJobs = () => {
   const [zipcode, setZipcode] = useState("");
   const [userId, setUserId] = useState("");
 
+  // To bring data that user saved before
   const [nameRef, setNameRef] = useState("");
   const [occupationRef, setOccupationRef] = useState("");
   const [salaryRef, setSalaryRef] = useState("");

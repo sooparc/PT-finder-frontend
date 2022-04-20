@@ -13,13 +13,6 @@ const Map = (props) => {
   const axios = require("axios");
   const id = useParams();
 
-  // useEffect(() => {
-  //   navigator.geolocation.getCurrentPosition((position) => {
-  //     setLatitude(position.coords.latitude);
-  //     setLongitude(position.coords.longitude);
-  //     console.log(position.coords);
-  // }, []);
-
   useEffect(() => {
     axios.get("https://pt-finder.herokuapp.com/companies").then((response) => {
       const newArr = response.data;

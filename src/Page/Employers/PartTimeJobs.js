@@ -16,7 +16,7 @@ const PartTimeJobs = () => {
   const [state, setState] = useState("");
   const [zipcode, setZipcode] = useState("");
   const [userId, setUserId] = useState("");
-
+  // To bring data that user saved before
   const [companyNameRef, setCompanyNameRef] = useState("");
   const [occupationRef, setOccupationRef] = useState("");
   const [salaryRef, setSalaryRef] = useState("");
