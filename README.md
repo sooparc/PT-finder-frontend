@@ -1,5 +1,4 @@
-# PT-finder-frontend 👩🏻‍💻
-
+# PT-finder-frontend 💼
 This app was built using these technologies.
 
 Frontend - Netlify\
