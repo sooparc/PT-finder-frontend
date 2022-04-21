@@ -1,5 +1,6 @@
-# PT-finder-frontend 💼
-This app was built using these technologies.
+# PT-finder-frontend 👩🏻‍💻
+
+PT-finder was built using these technologies.
 
 Frontend - Netlify\
 Backend - Heroku
