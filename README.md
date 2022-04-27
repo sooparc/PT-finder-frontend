@@ -1,4 +1,4 @@
-# PT-finder-frontend 👩🏻‍💻
+# PT-finder-frontend 💼
 
 PT-finder was built using these technologies.
 
