@@ -63,3 +63,9 @@
   background-color: #fff;
   border: solid 3px red;
 }
+
+@media (max-width: 575.98px) {
+  .navbar {
+    padding: 0px 20px;
+  }
+}

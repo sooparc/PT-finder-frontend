@@ -162,20 +162,28 @@
 }
 
 @media (max-width: 575.98px) {
+  .container {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .modalDivider {
     display: block;
   }
 
   .modalTitle1 {
-    display: block;
-    height: 200px;
+    /* display: block; */
+    font-size: 14px;
+    height: 180px;
     width: 250px;
   }
 
   .modalTitle2 {
     display: block;
+    font-size: 14px;
     margin-top: 20px;
-    height: 200px;
+    height: 180px;
     width: 250px;
   }
 }

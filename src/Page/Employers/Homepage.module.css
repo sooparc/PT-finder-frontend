@@ -52,8 +52,16 @@
 @media (max-width: 575.98px) {
   .card {
     display: block;
-    top: 70vh;
+    top: 70%;
     width: 80%;
     margin-bottom: 30px;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cardText {
+    font-size: 15px;
+    margin-top: 20px;
   }
 }

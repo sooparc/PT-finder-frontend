@@ -76,7 +76,7 @@ const EmployerSignup = () => {
             />
           </div>
 
-          <div>
+          <div className={classes.passwordInput}>
             <label className={classes.inputLabel}>Password</label>
             <input
               type="password"
@@ -89,7 +89,7 @@ const EmployerSignup = () => {
             <div className="invalid-feedback">{errors.password?.message}</div>
           </div>
 
-          <div>
+          <div className={classes.passwordInput}>
             <label className={classes.inputLabel}>Confirm Password</label>
             <input
               type="password"
