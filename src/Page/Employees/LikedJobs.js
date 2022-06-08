@@ -20,7 +20,7 @@ const LikedJobs = () => {
   const history = useHistory();
 
   useEffect(() => {
-    axios.get("http://localhost:3001/likedjobs").then((response) => {
+    axios.get("https://pt-finder.herokuapp.com/likedjobs").then((response) => {
       if (response.data) {
         setLiked(response.data);
       }
@@ -33,7 +33,7 @@ const LikedJobs = () => {
     const deleted = tempArr[index];
 
     axios
-      .delete(`http://localhost:3001/remove/${companyname}`)
+      .delete(`https://pt-finder.herokuapp.com/remove/${companyname}`)
       .then((response) => {
         const newArr = tempArr.filter((e) => e !== deleted);
         setLiked(newArr);

@@ -35,29 +35,31 @@ const PartTimeJobs = () => {
   useEffect((index) => {
     const id = localStorage.getItem("user_id");
 
-    axios.get("http://localhost:3001/employers").then((response) => {
+    axios.get("https://pt-finder.herokuapp.com/employers").then((response) => {
       const newArr = response.data;
       const filteredArr = newArr.find((e) => e.id == id);
       setUserId(filteredArr.id);
     });
 
-    axios.get("http://localhost:3001/parttimejobs").then((response) => {
-      const newArr = response.data;
-      const filteredArr = newArr.find((e) => e.user_id == id);
-      setCompanyNameRef(filteredArr.company_name);
-      setOccupationRef(filteredArr.occupation);
-      setSalaryRef(filteredArr.salary);
-      setPhoneRef(filteredArr.salary);
-      setStreetRef(filteredArr.street);
-      setCityRef(filteredArr.city);
-      setStateRef(filteredArr.state);
-      setZipcodeRef(filteredArr.zip_code);
-    });
+    axios
+      .get("https://pt-finder.herokuapp.com/parttimejobs")
+      .then((response) => {
+        const newArr = response.data;
+        const filteredArr = newArr.find((e) => e.user_id == id);
+        setCompanyNameRef(filteredArr.company_name);
+        setOccupationRef(filteredArr.occupation);
+        setSalaryRef(filteredArr.salary);
+        setPhoneRef(filteredArr.salary);
+        setStreetRef(filteredArr.street);
+        setCityRef(filteredArr.city);
+        setStateRef(filteredArr.state);
+        setZipcodeRef(filteredArr.zip_code);
+      });
   });
 
   const editClickHandler = () => {
     axios
-      .put("http://localhost:3001/editparttimejob", {
+      .put("https://pt-finder.herokuapp.com/editparttimejob", {
         companyName: companyName,
         occupation: occupation,
         salary: salary,
@@ -82,7 +84,7 @@ const PartTimeJobs = () => {
   const saveClickHandler = () => {
     if (isLoggedIn) {
       axios
-        .post("http://localhost:3001/parttimejobs", {
+        .post("https://pt-finder.herokuapp.com/parttimejobs", {
           user_id: userId,
           companyName: companyName,
           occupation: occupation,
