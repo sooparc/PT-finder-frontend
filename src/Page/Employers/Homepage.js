@@ -46,7 +46,7 @@ const Homepage = () => {
         <Card className={classes.card}>
           <Card.Body>
             <div className="mb-3">{card}</div>
-            <Card.Title className={classes.cardTitle}>Membership</Card.Title>
+            <Card.Title className={classes.cardTitle}>Subscription</Card.Title>
             <Card.Text className={classes.cardText}>
               Join for the benefits, stay to make a difference.
             </Card.Text>

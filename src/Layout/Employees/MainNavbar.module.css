@@ -10,5 +10,6 @@
 @media (max-width: 620px) {
   .navbar {
     width: 70%;
+    font-size: 14px;
   }
 }

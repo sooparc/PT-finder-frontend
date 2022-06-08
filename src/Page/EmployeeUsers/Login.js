@@ -8,7 +8,7 @@ import AuthContext from "./auth-context";
 axios.defaults.withCredentials = true;
 
 const Login = () => {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginStatus, setLoginStatus] = useState("");
@@ -20,7 +20,7 @@ const Login = () => {
 
   const login = () => {
     axios
-      .post("https://pt-finder.herokuapp.com/login", {
+      .post("http://localhost:3001/login", {
         email: email,
         password: password,
       })
@@ -37,9 +37,15 @@ const Login = () => {
   };
 
   useEffect(() => {
-    axios.get("https://pt-finder.herokuapp.com/login").then((response) => {
+    axios.get("http://localhost:3001/login").then((response) => {
       if (response.data.loggedIn === true) {
         localStorage.getItem("token");
+      }
+
+      let pop_status = localStorage.getItem("showModal");
+      if (!pop_status) {
+        setShowModal(true);
+        localStorage.setItem("showModal", true);
       }
     });
   }, []);
@@ -59,6 +65,7 @@ const Login = () => {
           >
             Looking For Part Time Jobs
           </div>
+
           <a href="/homepage" className={classes.modalTitle2}>
             Looking For Employees
           </a>

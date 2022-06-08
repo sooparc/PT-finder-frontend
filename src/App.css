@@ -66,6 +66,7 @@
 
 @media (max-width: 575.98px) {
   .navbar {
+    height: 10vh;
     padding: 0px 20px;
   }
 }

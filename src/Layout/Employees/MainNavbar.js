@@ -35,7 +35,7 @@ const MainNavbar = () => {
     <Navbar bg="light" expand={false}>
       <Container fluid>
         <Navbar.Brand href="/">
-          <img src={BrandLogo} style={{ width: "50px" }} />
+          <img src={BrandLogo} style={{ width: "80%" }} />
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="offcanvasNavbar" />

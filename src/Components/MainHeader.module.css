@@ -1,24 +1,24 @@
 .container {
-  height: 60vh;
+  height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-image: linear-gradient(
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.5)
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.2)
     ),
-    url("../Assets/background2.jpg");
-  background-position: 33% 67%;
+    url("../Assets/background.jpg");
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .input1 {
-  padding: 7px;
-  border: 1px solid #959595;
+  padding: 8px;
+  border: 1px solid #ccc;
   border-radius: 5px;
   width: 25%;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .input1:focus {
@@ -26,8 +26,8 @@
 }
 
 .input2 {
-  padding: 7px;
-  border: 1px solid #959595;
+  padding: 8px;
+  border: 1px solid #ccc;
   border-radius: 5px;
   width: 15%;
   margin-right: 10px;
@@ -39,20 +39,23 @@
 
 .headerBtn {
   margin-left: 10px;
-  background-color: #000;
-  border: 1px solid #000;
-  color: #fff;
+  background-color: #fff;
+  border: 2px solid #ffe228;
+  color: #000;
   border-radius: 5px;
-  padding: 8px;
+  padding: 7px;
 }
 
-.headerBtn:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-  color: #000;
+.arrowIcon {
+  position: absolute;
+  font-size: 25px;
+  padding-top: 500px;
+  color: #fff;
+}
+
+.arrowIcon:hover {
+  color: #959595;
   transition: 0.3s;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 5px;
-  padding: 8px;
 }
 
 @media (max-width: 1000px) {
@@ -69,27 +72,17 @@
 
 @media (max-width: 575.98px) {
   .input1 {
-    padding: 7px;
-    border: 1px solid #959595;
-    border-radius: 5px;
     width: 40%;
-    margin-right: 10px;
+    margin-right: 5px;
   }
 
   .input2 {
-    padding: 7px;
-    border: 1px solid #959595;
-    border-radius: 5px;
-    width: 30%;
+    width: 25%;
     margin-right: 5px;
   }
 
   .headerBtn {
-    margin-left: 10px;
-    background-color: #000;
-    border: 1px solid #000;
-    color: #fff;
+    margin-left: 5px;
     border-radius: 5px;
-    padding: 8px;
   }
 }

@@ -1,16 +1,17 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import classes from "./Profile.module.css";
-import { Card, Toast } from "react-bootstrap";
+import { Toast } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
-  faUser,
   faTrashCan,
   faPenToSquare,
   faLock,
+  faCircleUser,
 } from "@fortawesome/free-solid-svg-icons";
 import AuthContext from "../../Page/EmployeeUsers/auth-context";
+import loginImg from "../../Assets/loginRequest.png";
 
 const axios = require("axios");
 
@@ -22,7 +23,7 @@ const Profile = () => {
   const email = <FontAwesomeIcon icon={faEnvelope} />;
   const trashCan = <FontAwesomeIcon icon={faTrashCan} />;
   const edit = <FontAwesomeIcon icon={faPenToSquare} />;
-  const lock = <FontAwesomeIcon icon={faLock} />;
+  const user = <FontAwesomeIcon icon={faCircleUser} />;
 
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
@@ -33,7 +34,7 @@ const Profile = () => {
   const toggleShowA = () => setShowA(!showA);
 
   useEffect(() => {
-    axios.get("https://pt-finder.herokuapp.com/users").then((response) => {
+    axios.get("http://localhost:3001/users").then((response) => {
       const newArr = response.data;
       const user_id = localStorage.getItem("userId");
       const filteredObj = newArr.find((e) => e.id == user_id);
@@ -46,42 +47,36 @@ const Profile = () => {
 
   // The delete button in a message pop up. It will delete the user's account
   const deleteAccount = () => {
-    axios
-      .delete(`https://pt-finder.herokuapp.com/delete/${userId}`)
-      .then((response) => {
-        console.log("deleted");
-        localStorage.removeItem("token");
-        localStorage.removeItem("userId");
-        authCtx.logout();
-        history.push("/");
-      });
+    axios.delete(`http://localhost:3001/delete/${userId}`).then((response) => {
+      console.log("deleted");
+      localStorage.removeItem("token");
+      localStorage.removeItem("userId");
+      authCtx.logout();
+      history.push("/");
+    });
   };
 
   return (
     <div className={classes.body}>
-      <div className={classes.container}>
-        <div className={classes.title}>
-          <h2>Profile</h2>
-          <hr />
-
-          {isLoggedIn ? (
-            <>
+      {isLoggedIn ? (
+        <>
+          <div className={classes.container}>
+            <div className={classes.title}>
+              <div className={classes.profile}>Profile</div>
+              <hr />
               <div className={classes.header}>
-                <img
-                  src="https://elzero.org/images/challenges/person-blue-shirt.png"
-                  alt=""
-                />
-                <h4 className="mt-3">
+                <span className={classes.userIcon}>{user}</span>
+                <div className="mt-3">
                   <strong>Username: </strong>
                   {username}
-                </h4>
+                </div>
+
+                <div className="mt-2">
+                  <strong>Email Address:</strong> {emailAddress}
+                </div>
               </div>
 
-              <div className="text-center text-muted">
-                {email} {emailAddress}
-              </div>
-
-              <div className="text-center mt-5">
+              <div className="text-center mt-4">
                 <a href="/resume" className={classes.editLink}>
                   {edit}
                   <span> </span>Edit Resume
@@ -95,19 +90,19 @@ const Profile = () => {
                   <span style={{ marginRight: "3px" }}> </span> Delete Account
                 </button>
               </div>
-            </>
-          ) : (
-            <div className={classes.background}>
-              <p>
-                {lock} <span style={{ marginLeft: "5px" }}> </span>
-                Please <a href="/login">login</a> or<span> </span>
-                <a href="/signup">sign up</a>
-                <span> </span>to create a profile.
-              </p>
             </div>
-          )}
+          </div>
+        </>
+      ) : (
+        <div className={classes.container2}>
+          <p className={classes.loginMessageTitle}>Login Required</p>
+          <img src={loginImg} className={classes.loginImg} />
+          <p className={classes.loginMessage}>
+            Please <a href="/login">login</a> or<span> </span>
+            <a href="/signup">sign up</a> <span> </span>to create a profile.
+          </p>
         </div>
-      </div>
+      )}
 
       <Toast show={showA} onClose={toggleShowA} className={classes.toast}>
         <Toast.Header>

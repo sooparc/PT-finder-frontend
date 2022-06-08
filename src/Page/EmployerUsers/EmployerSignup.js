@@ -44,7 +44,7 @@ const EmployerSignup = () => {
     console.log(password);
     if (password.length >= 8) {
       axios
-        .post("https://pt-finder.herokuapp.com/employersignup", {
+        .post("http://localhost:3001/employersignup", {
           username: username,
           password: password,
           firstname: firstname,
@@ -65,7 +65,7 @@ const EmployerSignup = () => {
   return (
     <div className={classes.body}>
       <div className={classes.container}>
-        <h2>Create an employer account</h2>
+        <div className={classes.containerTitle}>Create an employer account</div>
         <form onSubmit={handleSubmit(onFormSubmit)}>
           <div className="mt-5">
             <label className={classes.inputLabel}>Username</label>

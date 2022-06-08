@@ -16,20 +16,40 @@
   background-color: #fff;
 }
 
-.background {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #eeeeee;
-  height: 120px;
+.profile {
+  font-size: 25px;
+}
+
+.container2 {
+  margin-top: 18vh;
+  text-align: center;
+}
+
+.loginMessageTitle {
+  font-size: 28px;
+  letter-spacing: 1.6px;
+}
+
+.loginImg {
+  width: 25%;
+}
+
+.loginMessage {
   font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.userIcon {
+  font-size: 70px;
 }
 
 .header {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  padding: 20px;
+  padding: 10px;
+  letter-spacing: 1px;
+  font-size: 18px;
 }
 
 .btn1 {
@@ -54,16 +74,16 @@
 
 .editLink {
   text-decoration: none;
-  color: #fff;
-  border: 1px solid rgba(0, 112, 50, 0.95);
-  background-color: rgba(0, 112, 50, 0.95);
+  color: #000;
+  border: 1px solid #ccc;
+  background-color: #ccc;
   padding: 8px;
   border-radius: 5px;
   margin-right: 20px;
 }
 
 .editLink:hover {
-  color: #fff;
+  color: #000;
 }
 
 .deleteBtn {
@@ -106,12 +126,38 @@
 }
 
 @media (max-width: 575.98px) {
-  .background {
-    height: 200px;
-    font-size: smaller;
+  .container {
+    width: 330px;
   }
 
-  .container {
-    width: 400px;
+  .profile {
+    font-size: 20px;
+  }
+
+  .userIcon {
+    font-size: 50px;
+  }
+
+  .editLink {
+    margin-right: 5px;
+    font-size: 12.5px;
+    padding: 10px;
+  }
+
+  .deleteBtn {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .header {
+    font-size: 16px;
+  }
+
+  .loginImg {
+    width: 60%;
+  }
+
+  .loginMessage {
+    font-size: 15px;
   }
 }

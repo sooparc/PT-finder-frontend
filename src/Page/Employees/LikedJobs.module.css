@@ -2,10 +2,40 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.container2 {
+  margin-top: 18vh;
+  text-align: center;
+}
+
+.loginMessageTitle {
+  font-size: 28px;
+  letter-spacing: 1.6px;
+}
+
+.loginImg {
+  width: 17%;
+}
+
+.loginMessage {
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
 .header {
-  text-align: start;
-  margin-left: 40px;
   margin-top: 3vh;
+  font-size: 25px;
+}
+
+.bodyTitle {
+  text-align: end;
+  margin-right: 50px;
+  color: #404040;
+}
+
+.hrLine {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .image {
@@ -19,7 +49,7 @@ body {
   padding: 0px 10px;
   text-align: center;
   margin: 0 30px;
-  border-top: 3px solid #000;
+  border-top: 3px solid #6c5e4f;
   box-shadow: 1px 5px 10px #dcdcdc;
   margin-bottom: 30px;
   color: #000;
@@ -36,17 +66,12 @@ body {
   transition: 0.3s;
 }
 
-.applyBtn:hover {
-  border: 1px solid #959595;
-}
-
 .card:hover {
   transform: translateY(-5px);
   transition: 0.3s;
 }
 
 .warningIcon {
-  color: red;
   margin-top: 25vh;
   text-align: center;
   font-size: 4rem;
@@ -72,9 +97,30 @@ body {
 }
 
 @media (max-width: 575.98px) {
-  .background {
-    height: 200px;
-    width: 350px;
-    font-size: smaller;
+  .loginImg {
+    width: 60%;
+  }
+
+  .loginMessage {
+    font-size: 15px;
+  }
+
+  .bodyTitle {
+    font-size: 20px;
+  }
+
+  .hrLine {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .warningIcon {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+
+  .warning {
+    font-size: 20px;
   }
 }

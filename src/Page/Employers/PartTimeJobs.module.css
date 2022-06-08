@@ -56,7 +56,7 @@
   margin-top: 2rem;
   margin-bottom: 2rem;
   background-color: #fff;
-  border: 1px solid rgba(0, 112, 50, 0.95);
+  border: 1px solid #ccc;
   border-radius: 5px;
   padding: 7px 20px;
   color: #000;
@@ -66,11 +66,11 @@
 .saveBtn {
   margin-top: 2rem;
   margin-bottom: 2rem;
-  background-color: rgba(0, 112, 50, 0.95);
-  border: 1px solid rgba(0, 112, 50, 0.95);
+  background-color: #ccc;
+  border: 1px solid #ccc;
   border-radius: 5px;
   padding: 7px 20px;
-  color: #fff;
+  color: #;
 }
 
 .background {
@@ -88,12 +88,10 @@
 }
 
 @media (max-width: 650px) {
-  .inputBox {
-    min-width: 400px;
+  .body {
+    height: 230vh;
   }
-
-  .background {
-    width: 350px;
-    font-size: smaller;
+  .inputBox {
+    min-width: 330px;
   }
 }

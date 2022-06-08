@@ -35,31 +35,29 @@ const PartTimeJobs = () => {
   useEffect((index) => {
     const id = localStorage.getItem("user_id");
 
-    axios.get("https://pt-finder.herokuapp.com/employers").then((response) => {
+    axios.get("http://localhost:3001/employers").then((response) => {
       const newArr = response.data;
-      const filteredArr = newArr.find((e) => e.id === id);
+      const filteredArr = newArr.find((e) => e.id == id);
       setUserId(filteredArr.id);
     });
 
-    axios
-      .get("https://pt-finder.herokuapp.com/parttimejobs")
-      .then((response) => {
-        const newArr = response.data;
-        const filteredArr = newArr.find((e) => e.user_id === id);
-        setCompanyNameRef(filteredArr.company_name);
-        setOccupationRef(filteredArr.occupation);
-        setSalaryRef(filteredArr.salary);
-        setPhoneRef(filteredArr.salary);
-        setStreetRef(filteredArr.street);
-        setCityRef(filteredArr.city);
-        setStateRef(filteredArr.state);
-        setZipcodeRef(filteredArr.zip_code);
-      });
+    axios.get("http://localhost:3001/parttimejobs").then((response) => {
+      const newArr = response.data;
+      const filteredArr = newArr.find((e) => e.user_id == id);
+      setCompanyNameRef(filteredArr.company_name);
+      setOccupationRef(filteredArr.occupation);
+      setSalaryRef(filteredArr.salary);
+      setPhoneRef(filteredArr.salary);
+      setStreetRef(filteredArr.street);
+      setCityRef(filteredArr.city);
+      setStateRef(filteredArr.state);
+      setZipcodeRef(filteredArr.zip_code);
+    });
   });
 
   const editClickHandler = () => {
     axios
-      .put("https://pt-finder.herokuapp.com/editparttimejob", {
+      .put("http://localhost:3001/editparttimejob", {
         companyName: companyName,
         occupation: occupation,
         salary: salary,
@@ -82,186 +80,176 @@ const PartTimeJobs = () => {
   };
 
   const saveClickHandler = () => {
-    axios
-      .post("https://pt-finder.herokuapp.com/parttimejobs", {
-        companyName: companyName,
-        occupation: occupation,
-        salary: salary,
-        phone: phone,
-        schedule: schedule,
-        period: period,
-        street: street,
-        city: city,
-        state: state,
-        zipcode: zipcode,
-        userId: userId,
-      })
-      .then((response) => {
-        alert("Successfully saved !");
-      });
+    if (isLoggedIn) {
+      axios
+        .post("http://localhost:3001/parttimejobs", {
+          user_id: userId,
+          companyName: companyName,
+          occupation: occupation,
+          salary: salary,
+          phone: phone,
+          schedule: schedule,
+          period: period,
+          street: street,
+          city: city,
+          state: state,
+          zipcode: zipcode,
+          userId: userId,
+        })
+        .then((response) => {
+          alert("Successfully saved !");
+        });
+    } else {
+      alert("Please login first!");
+    }
   };
 
   return (
     <div className={classes.body}>
       <div className={classes.container}>
-        {isLoggedIn ? (
-          <>
+        <div>
+          <h1 className={classes.title}>We're HIRING !</h1>
+        </div>
+
+        <form onSubmit={submitHandler}>
+          <div className={classes.inputBox}>
             <div>
-              <h1 className={classes.title}>We're HIRING !</h1>
+              <label className={classes.label}>Company Name</label>
+              <input
+                type="text"
+                className={classes.input}
+                placeholder={companyNameRef}
+                onChange={(e) => setCompanyName(e.target.value)}
+                required
+              />
             </div>
 
-            <form onSubmit={submitHandler}>
-              <div className={classes.inputBox}>
-                <div>
-                  <label className={classes.label}>Company Name</label>
-                  <input
-                    type="text"
-                    className={classes.input}
-                    placeholder={companyNameRef}
-                    onChange={(e) => setCompanyName(e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className={classes.label}>Job Title</label>
-                  <input
-                    type="text"
-                    className={classes.input}
-                    placeholder={occupationRef}
-                    onChange={(e) => setOccupation(e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className={classes.label}>Salary</label>
-                  <input
-                    type="text"
-                    className={classes.input}
-                    placeholder={salaryRef}
-                    onChange={(e) => setSalary(e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className={classes.label}>Phone number</label>
-                  <input
-                    type="text"
-                    className={classes.input}
-                    placeholder={phoneRef}
-                    onChange={(e) => setPhone(e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div className="my-3">
-                  <label className={classes.label}>
-                    What is the schedule for this job?
-                  </label>
-                  <select
-                    id="schedule"
-                    name="schedule"
-                    className={classes.input}
-                    onChange={(e) => setSchedule(e.target.value)}
-                    required
-                  >
-                    <option value="">----</option>
-                    <option value="MON - FRI">MON - FRI</option>
-                    <option value="SAT - SUN">SAT - SUN</option>
-                    <option value="MON - SUN">MON - SUN</option>
-                  </select>
-                </div>
-
-                <div className="mb-5">
-                  <label className={classes.label}>
-                    How quickly do you need to hire?
-                  </label>
-                  <select
-                    id="days"
-                    name="days"
-                    className={classes.input}
-                    onChange={(e) => setPeriod(e.target.value)}
-                    required
-                  >
-                    <option value="">----</option>
-                    <option value="1 to 3 days">1 to 3 days</option>
-                    <option value="3 to 7 days">3 to 7 days</option>
-                    <option value="1 to 2 weeks">1 to 2 weeks</option>
-                    <option value="2 to 4 weeks">2 to 4 weeks</option>
-                    <option value="More than 4 weeks">More than 4 weeks</option>
-                  </select>
-                </div>
-
-                <hr />
-
-                <h4 className="mt-5">Location</h4>
-                <div className="mt-4">
-                  <label className={classes.label}>Street</label>
-                  <input
-                    type="text"
-                    className={classes.input}
-                    placeholder={streetRef}
-                    onChange={(e) => setStreet(e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className={classes.label}>City</label>
-                  <input
-                    type="text"
-                    className={classes.input}
-                    placeholder={cityRef}
-                    onChange={(e) => setCity(e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className={classes.label}>State</label>
-                  <input
-                    type="text"
-                    className={classes.input}
-                    placeholder={stateRef}
-                    onChange={(e) => setState(e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className={classes.label}>Zip code</label>
-                  <input
-                    type="text"
-                    className={classes.input}
-                    placeholder={zipcodeRef}
-                    onChange={(e) => setZipcode(e.target.value)}
-                    required
-                  />
-                </div>
-
-                <button className={classes.editBtn} onClick={editClickHandler}>
-                  Edit
-                </button>
-                <button className={classes.saveBtn} onClick={saveClickHandler}>
-                  Save
-                </button>
-              </div>
-            </form>
-          </>
-        ) : (
-          <>
-            <div className={classes.background}>
-              <p>
-                {lock} <span style={{ marginLeft: "5px" }}> </span>
-                Please <a href="/employerlogin">login</a> or<span> </span>
-                <a href="/employersignup">sign up</a>
-                <span> </span>to post a job.
-              </p>
+            <div>
+              <label className={classes.label}>Job Title</label>
+              <input
+                type="text"
+                className={classes.input}
+                placeholder={occupationRef}
+                onChange={(e) => setOccupation(e.target.value)}
+                required
+              />
             </div>
-          </>
-        )}
+
+            <div>
+              <label className={classes.label}>Salary</label>
+              <input
+                type="text"
+                className={classes.input}
+                placeholder={salaryRef}
+                onChange={(e) => setSalary(e.target.value)}
+                required
+              />
+            </div>
+
+            <div>
+              <label className={classes.label}>Phone number</label>
+              <input
+                type="text"
+                className={classes.input}
+                placeholder={phoneRef}
+                onChange={(e) => setPhone(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="my-3">
+              <label className={classes.label}>
+                What is the schedule for this job?
+              </label>
+              <select
+                id="schedule"
+                name="schedule"
+                className={classes.input}
+                onChange={(e) => setSchedule(e.target.value)}
+                required
+              >
+                <option value="">----</option>
+                <option value="MON - FRI">MON - FRI</option>
+                <option value="SAT - SUN">SAT - SUN</option>
+                <option value="MON - SUN">MON - SUN</option>
+              </select>
+            </div>
+
+            <div className="mb-5">
+              <label className={classes.label}>
+                How quickly do you need to hire?
+              </label>
+              <select
+                id="days"
+                name="days"
+                className={classes.input}
+                onChange={(e) => setPeriod(e.target.value)}
+                required
+              >
+                <option value="">----</option>
+                <option value="1 to 3 days">1 to 3 days</option>
+                <option value="3 to 7 days">3 to 7 days</option>
+                <option value="1 to 2 weeks">1 to 2 weeks</option>
+                <option value="2 to 4 weeks">2 to 4 weeks</option>
+                <option value="More than 4 weeks">More than 4 weeks</option>
+              </select>
+            </div>
+
+            <hr />
+
+            <h4 className="mt-5">Location</h4>
+            <div className="mt-4">
+              <label className={classes.label}>Street</label>
+              <input
+                type="text"
+                className={classes.input}
+                placeholder={streetRef}
+                onChange={(e) => setStreet(e.target.value)}
+                required
+              />
+            </div>
+
+            <div>
+              <label className={classes.label}>City</label>
+              <input
+                type="text"
+                className={classes.input}
+                placeholder={cityRef}
+                onChange={(e) => setCity(e.target.value)}
+                required
+              />
+            </div>
+
+            <div>
+              <label className={classes.label}>State</label>
+              <input
+                type="text"
+                className={classes.input}
+                placeholder={stateRef}
+                onChange={(e) => setState(e.target.value)}
+                required
+              />
+            </div>
+
+            <div>
+              <label className={classes.label}>Zip code</label>
+              <input
+                type="text"
+                className={classes.input}
+                placeholder={zipcodeRef}
+                onChange={(e) => setZipcode(e.target.value)}
+                required
+              />
+            </div>
+
+            <button className={classes.editBtn} onClick={editClickHandler}>
+              Edit
+            </button>
+            <button className={classes.saveBtn} onClick={saveClickHandler}>
+              Save
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );

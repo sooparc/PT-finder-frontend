@@ -35,7 +35,7 @@ const SecondNavbar = () => {
     <Navbar bg="dark" expand={false}>
       <Container fluid>
         <Navbar.Brand href="/homepage">
-          <img src={BrandLogo2} style={{ width: "50px" }} />
+          <img src={BrandLogo2} style={{ width: "60%" }} />
         </Navbar.Brand>
 
         <Navbar.Toggle
@@ -60,14 +60,14 @@ const SecondNavbar = () => {
                   <span className="mx-2"> {user} </span> Login / Sign up
                 </Nav.Link>
               )}
-              <Nav.Link href="/parttimejobs" className={classes.navbar}>
-                <span className="mx-2">{post}</span>Post a part time job
-              </Nav.Link>
               <Nav.Link href="/onetimejobs" className={classes.navbar}>
                 <span className="mx-2">{post}</span>Post an one time job
               </Nav.Link>
+              <Nav.Link href="/parttimejobs" className={classes.navbar}>
+                <span className="mx-2">{post}</span>Post a part time job
+              </Nav.Link>
               <Nav.Link href="/payment" className={classes.navbar}>
-                <span className="mx-2">{membership}</span>Membership
+                <span className="mx-2">{membership}</span>Subscription
               </Nav.Link>
               <NavDropdown.Divider />
               <Nav.Link href="/" className={classes.navbar}>

@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import classes from "./JobDetails.module.css";
 import Map from "../../Components/Map";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import AuthContext from "../../Page/EmployeeUsers/auth-context";
 
 const JobDetails = () => {
   const [selectedCompany, setSelectedCompany] = useState([]);
@@ -21,8 +22,11 @@ const JobDetails = () => {
   const id = useParams();
   const history = useHistory();
 
+  const authCtx = useContext(AuthContext);
+  const isLoggedIn = authCtx.isLoggedIn;
+
   useEffect(() => {
-    axios.get("https://pt-finder.herokuapp.com/companies").then((response) => {
+    axios.get("http://localhost:3001/companies").then((response) => {
       const newArr = response.data;
       const newId = id.id;
       const filteredObj = newArr.find((e) => e.id == newId);
@@ -31,7 +35,7 @@ const JobDetails = () => {
       setOccupation(filteredObj.occupation);
     });
 
-    axios.get("https://pt-finder.herokuapp.com/users").then((response) => {
+    axios.get("http://localhost:3001/users").then((response) => {
       const tempArr = response.data;
       const user_id = localStorage.getItem("userId");
       const filteredUser = tempArr.find((e) => e.id == user_id);
@@ -47,12 +51,16 @@ const JobDetails = () => {
   // if the user hasn't filled out a resume form, it will take the user to the resume page,
   // otherwise it will send data to MYSQL that the user applied.
   const applyClickHandler = () => {
-    if (selectedUser.firstname === null) {
-      alert("Please fill out a resume form first !!");
+    if (!isLoggedIn) {
+      alert("Please login first!");
+      history.push("/login");
+    }
+    if (firstname === null) {
+      alert("Please fill out the resume form first! ");
       history.push("/resume");
     } else {
       axios
-        .post("https://pt-finder.herokuapp.com/applied_jobs", {
+        .post("http://localhost:3001/applied_jobs", {
           user_id: userId,
           firstname: firstname,
           lastname: lastname,
