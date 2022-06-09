@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.6f5c9c79.css",
-    "main.js": "/static/js/main.c1cf6d7c.js",
+    "main.css": "/static/css/main.ba166187.css",
+    "main.js": "/static/js/main.3d633816.js",
     "static/js/787.39bb0775.chunk.js": "/static/js/787.39bb0775.chunk.js",
     "static/media/ModalRight.jpg": "/static/media/ModalRight.c2d2e93c940ed4955edf.jpg",
     "static/media/backgroundImage.jpg": "/static/media/backgroundImage.2026ad7902b5636f4a6d.jpg",
@@ -24,12 +24,12 @@
     "static/media/revicons.woff": "/static/media/revicons.e8746a624ed098489406.woff",
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.afac89562a5301459069.woff2",
     "index.html": "/index.html",
-    "main.6f5c9c79.css.map": "/static/css/main.6f5c9c79.css.map",
-    "main.c1cf6d7c.js.map": "/static/js/main.c1cf6d7c.js.map",
+    "main.ba166187.css.map": "/static/css/main.ba166187.css.map",
+    "main.3d633816.js.map": "/static/js/main.3d633816.js.map",
     "787.39bb0775.chunk.js.map": "/static/js/787.39bb0775.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6f5c9c79.css",
-    "static/js/main.c1cf6d7c.js"
+    "static/css/main.ba166187.css",
+    "static/js/main.3d633816.js"
   ]
 }
