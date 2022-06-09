@@ -36,7 +36,7 @@ const SignUp = () => {
   const registerClickHandler = () => {
     if (passwordReg.length >= 8) {
       axios
-        .post("https://pt-finder.herokuapp.com/signup", {
+        .post("http://localhost:3001/signup", {
           username: usernameReg,
           email: emailReg,
           password: passwordReg,

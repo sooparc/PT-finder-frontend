@@ -62,7 +62,7 @@ const Resume = () => {
   };
 
   useEffect(() => {
-    axios.get("https://pt-finder.herokuapp.com/users").then((response) => {
+    axios.get("http://localhost:3001/users").then((response) => {
       const newArr = response.data;
       const user_id = localStorage.getItem("userId");
       const filteredObj = newArr.find((e) => e.id == user_id);
@@ -84,7 +84,7 @@ const Resume = () => {
   const saveClickHandler = (index, id) => {
     if (isLoggedIn) {
       axios
-        .put("https://pt-finder.herokuapp.com/editresume", {
+        .put("http://localhost:3001/editresume", {
           firstname: firstname,
           lastname: lastname,
           phonenumber: phonenumber,
