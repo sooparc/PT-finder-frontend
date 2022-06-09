@@ -14,7 +14,7 @@ const EmployerLogin = () => {
 
   const loginClickHandler = () => {
     axios
-      .post("http://localhost:3000/employerlogin", {
+      .post("https://pt-finder.herokuapp.com/employerlogin", {
         email: email,
         password: password,
       })
@@ -31,11 +31,13 @@ const EmployerLogin = () => {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:3000/employerlogin").then((response) => {
-      if (response.data.loggedIn === true) {
-        localStorage.getItem("employerToken");
-      }
-    });
+    axios
+      .get("https://pt-finder.herokuapp.com/employerlogin")
+      .then((response) => {
+        if (response.data.loggedIn === true) {
+          localStorage.getItem("employerToken");
+        }
+      });
   }, []);
 
   return (

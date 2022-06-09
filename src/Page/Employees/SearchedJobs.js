@@ -14,7 +14,7 @@ const SearchedJobs = () => {
 
   useEffect(() => {
     axios
-      .post(`http://localhost:3000/search`, {
+      .post(`https://pt-finder.herokuapp.com/search`, {
         jobTitle: jobId,
         city: cityId,
       })
@@ -25,7 +25,7 @@ const SearchedJobs = () => {
 
   const searchClickHandler = () => {
     axios
-      .post(`http://localhost:3000/search`, {
+      .post(`https://pt-finder.herokuapp.com/search`, {
         jobTitle: jobTitle,
         city: city,
       })

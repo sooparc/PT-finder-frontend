@@ -36,30 +36,32 @@ const OneTimeJobs = () => {
 
   useEffect((index) => {
     const id = localStorage.getItem("user_id");
-    axios.get("http://localhost:3000/employers").then((response) => {
+    axios.get("https://pt-finder.herokuapp.com/employers").then((response) => {
       const newArr = response.data;
       const filteredArr = newArr.find((e) => e.id == id);
       setUserId(filteredArr.id);
     });
 
-    axios.get("http://localhost:3000/onetimejobsdata").then((response) => {
-      const newArr = response.data;
-      const filteredArr = newArr.find((e) => e.user_id == id);
-      setNameRef(filteredArr.company_name);
-      setOccupationRef(filteredArr.occupation);
-      setSalaryRef(filteredArr.salary);
-      setPhoneRef(filteredArr.phone);
-      setStreetRef(filteredArr.street);
-      setCityRef(filteredArr.city);
-      setStateRef(filteredArr.state);
-      setZipcodeRef(filteredArr.zip_code);
-    });
+    axios
+      .get("https://pt-finder.herokuapp.com/onetimejobsdata")
+      .then((response) => {
+        const newArr = response.data;
+        const filteredArr = newArr.find((e) => e.user_id == id);
+        setNameRef(filteredArr.company_name);
+        setOccupationRef(filteredArr.occupation);
+        setSalaryRef(filteredArr.salary);
+        setPhoneRef(filteredArr.phone);
+        setStreetRef(filteredArr.street);
+        setCityRef(filteredArr.city);
+        setStateRef(filteredArr.state);
+        setZipcodeRef(filteredArr.zip_code);
+      });
   });
 
   const saveClickHandler = () => {
     if (isLoggedIn) {
       axios
-        .post("http://localhost:3000/onetimejobs", {
+        .post("https://pt-finder.herokuapp.com/onetimejobs", {
           user_id: userId,
           name: name,
           occupation: occupation,
@@ -90,7 +92,7 @@ const OneTimeJobs = () => {
 
   const editClickHandler = () => {
     axios
-      .put("http://localhost:3000/editonetimejob", {
+      .put("https://pt-finder.herokuapp.com/editonetimejob", {
         name: name,
         occupation: occupation,
         salary: salary,

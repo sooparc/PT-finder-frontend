@@ -14,22 +14,24 @@ const Home = () => {
 
   useEffect(() => {
     // bring companies data & user's saved jobs from MYSQL
-    axios.get("http://localhost:3000/companies").then((res) => {
-      axios.get("http://localhost:3000/likedjobs").then((response) => {
-        let liked = response.data;
-        let tempCompanies = res.data;
-        let likedCompanies = liked.map((item) => item.company_name);
+    axios.get("https://pt-finder.herokuapp.com/companies").then((res) => {
+      axios
+        .get("https://pt-finder.herokuapp.com/likedjobs")
+        .then((response) => {
+          let liked = response.data;
+          let tempCompanies = res.data;
+          let likedCompanies = liked.map((item) => item.company_name);
 
-        // bring user's saved jobs
-        tempCompanies.forEach((e, index) => {
-          if (likedCompanies.includes(e.company_name)) {
-            tempCompanies[index]["isLiked"] = true;
-          } else {
-            tempCompanies[index]["isLiked"] = false;
-          }
+          // bring user's saved jobs
+          tempCompanies.forEach((e, index) => {
+            if (likedCompanies.includes(e.company_name)) {
+              tempCompanies[index]["isLiked"] = true;
+            } else {
+              tempCompanies[index]["isLiked"] = false;
+            }
+          });
+          setCompanies(tempCompanies);
         });
-        setCompanies(tempCompanies);
-      });
     });
   }, []);
 
@@ -40,7 +42,7 @@ const Home = () => {
     if (tempArr[index] && tempArr[index]["isLiked"]) {
       tempArr[index]["isLiked"] = false;
       axios
-        .delete(`http://localhost:3000/remove/${companyname}`)
+        .delete(`https://pt-finder.herokuapp.com/remove/${companyname}`)
         .then((response) => {
           console.log("Deleted!");
         });
@@ -54,7 +56,7 @@ const Home = () => {
       const occupation = tempArr[index].occupation;
 
       axios
-        .post("http://localhost:3000/liked", {
+        .post("https://pt-finder.herokuapp.com/liked", {
           id: id,
           userid: userid,
           companyname: companyname,

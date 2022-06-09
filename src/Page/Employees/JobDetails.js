@@ -26,7 +26,7 @@ const JobDetails = () => {
   const isLoggedIn = authCtx.isLoggedIn;
 
   useEffect(() => {
-    axios.get("http://localhost:3000/companies").then((response) => {
+    axios.get("https://pt-finder.herokuapp.com/companies").then((response) => {
       const newArr = response.data;
       const newId = id.id;
       const filteredObj = newArr.find((e) => e.id == newId);
@@ -35,7 +35,7 @@ const JobDetails = () => {
       setOccupation(filteredObj.occupation);
     });
 
-    axios.get("http://localhost:3000/users").then((response) => {
+    axios.get("https://pt-finder.herokuapp.com/users").then((response) => {
       const tempArr = response.data;
       const user_id = localStorage.getItem("userId");
       const filteredUser = tempArr.find((e) => e.id == user_id);
@@ -59,7 +59,7 @@ const JobDetails = () => {
       history.push("/resume");
     } else {
       axios
-        .post("http://localhost:3000/applied_jobs", {
+        .post("https://pt-finder.herokuapp.com/applied_jobs", {
           user_id: userId,
           firstname: firstname,
           lastname: lastname,

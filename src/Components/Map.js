@@ -14,7 +14,7 @@ const Map = (props) => {
   const id = useParams();
 
   useEffect(() => {
-    axios.get("http://localhost:3000/companies").then((response) => {
+    axios.get("https://pt-finder.herokuapp.com/companies").then((response) => {
       const newArr = response.data;
       const newId = id.id;
       const filteredObj = newArr.find((e) => e.id == newId);

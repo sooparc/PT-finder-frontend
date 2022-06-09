@@ -19,9 +19,11 @@ const HomepageMap = (props) => {
       setLatitude(position.coords.latitude);
       setLongitude(position.coords.longitude);
 
-      axios.get("http://localhost:3000/companies").then((response) => {
-        setData(response.data);
-      });
+      axios
+        .get("https://pt-finder.herokuapp.com/companies")
+        .then((response) => {
+          setData(response.data);
+        });
     });
 
     let map = tt.map({
