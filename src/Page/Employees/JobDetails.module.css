@@ -130,6 +130,7 @@
 
   .card {
     border-right: 1px solid #fff;
+    margin-top: 5vh;
   }
 
   .notification {

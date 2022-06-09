@@ -42,7 +42,7 @@ const Payment = () => {
     });
 
     axios
-      .post("https://pt-finder.herokuapp.com/paymentInfo", {
+      .post("http://localhost:3000/paymentInfo", {
         userId: userId,
         name: name,
         street: street,
@@ -57,13 +57,10 @@ const Payment = () => {
     if (!error) {
       try {
         const { id } = paymentMethod;
-        const response = await axios.post(
-          "https://pt-finder.herokuapp.com/payment",
-          {
-            amount: 100,
-            id,
-          }
-        );
+        const response = await axios.post("http://localhost:3000/payment", {
+          amount: 100,
+          id,
+        });
 
         if (response.data.success) {
           console.log("Successful payment");

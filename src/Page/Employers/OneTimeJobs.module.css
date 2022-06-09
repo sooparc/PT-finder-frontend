@@ -46,10 +46,13 @@
   min-height: 2.5rem;
   font-size: 1.2em;
   margin-bottom: 1rem;
+  width: 80%;
+  color: #000;
 }
 
 .input:focus {
   outline: none;
+  color: #000;
 }
 
 .checkboxContainer {
@@ -86,6 +89,10 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 7px 20px;
+  color: #000;
+}
+
+.saveBtn:hover {
   color: #000;
 }
 

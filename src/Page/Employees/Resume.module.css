@@ -30,17 +30,19 @@
   margin-bottom: 5px;
 }
 
-.container input,
-textarea,
-select {
+.input {
+  width: 90%;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 5px;
 }
 
-.container textarea {
-  width: 80%;
-  height: 120px;
+.textarea {
+  width: 90%;
+  height: 130px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .addBtn {

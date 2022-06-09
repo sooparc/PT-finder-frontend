@@ -36,32 +36,30 @@ const OneTimeJobs = () => {
 
   useEffect((index) => {
     const id = localStorage.getItem("user_id");
-    axios.get("https://pt-finder.herokuapp.com/employers").then((response) => {
+    axios.get("http://localhost:3000/employers").then((response) => {
       const newArr = response.data;
       const filteredArr = newArr.find((e) => e.id == id);
       setUserId(filteredArr.id);
     });
 
-    axios
-      .get("https://pt-finder.herokuapp.com/onetimejobsdata")
-      .then((response) => {
-        const newArr = response.data;
-        const filteredArr = newArr.find((e) => e.user_id == id);
-        setNameRef(filteredArr.company_name);
-        setOccupationRef(filteredArr.occupation);
-        setSalaryRef(filteredArr.salary);
-        setPhoneRef(filteredArr.phone);
-        setStreetRef(filteredArr.street);
-        setCityRef(filteredArr.city);
-        setStateRef(filteredArr.state);
-        setZipcodeRef(filteredArr.zip_code);
-      });
+    axios.get("http://localhost:3000/onetimejobsdata").then((response) => {
+      const newArr = response.data;
+      const filteredArr = newArr.find((e) => e.user_id == id);
+      setNameRef(filteredArr.company_name);
+      setOccupationRef(filteredArr.occupation);
+      setSalaryRef(filteredArr.salary);
+      setPhoneRef(filteredArr.phone);
+      setStreetRef(filteredArr.street);
+      setCityRef(filteredArr.city);
+      setStateRef(filteredArr.state);
+      setZipcodeRef(filteredArr.zip_code);
+    });
   });
 
   const saveClickHandler = () => {
     if (isLoggedIn) {
       axios
-        .post("https://pt-finder.herokuapp.com/onetimejobs", {
+        .post("http://localhost:3000/onetimejobs", {
           user_id: userId,
           name: name,
           occupation: occupation,
@@ -92,7 +90,7 @@ const OneTimeJobs = () => {
 
   const editClickHandler = () => {
     axios
-      .put("https://pt-finder.herokuapp.com/editonetimejob", {
+      .put("http://localhost:3000/editonetimejob", {
         name: name,
         occupation: occupation,
         salary: salary,
@@ -173,6 +171,7 @@ const OneTimeJobs = () => {
                   fontWeight: "700",
                   marginTop: "30px",
                 }}
+                className={classes.label}
               >
                 Start
               </label>
@@ -196,7 +195,7 @@ const OneTimeJobs = () => {
                   marginLeft: "10px",
                   fontWeight: "700",
                 }}
-                className="mb-5"
+                className={classes.label}
               >
                 End
               </label>

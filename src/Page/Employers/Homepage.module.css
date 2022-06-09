@@ -50,6 +50,9 @@
 }
 
 @media (max-width: 575.98px) {
+  .body {
+    height: 160vh;
+  }
   .card {
     display: block;
     top: 70%;

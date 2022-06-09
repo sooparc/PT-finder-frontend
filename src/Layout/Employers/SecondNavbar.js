@@ -42,6 +42,7 @@ const SecondNavbar = () => {
           aria-controls="offcanvasNavbar"
           style={{ backgroundColor: "#959595" }}
         />
+
         <Navbar.Offcanvas
           className={classes.navbar}
           id="offcanvasNavbar"

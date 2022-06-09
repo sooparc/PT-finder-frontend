@@ -34,7 +34,7 @@ const Profile = () => {
   const toggleShowA = () => setShowA(!showA);
 
   useEffect(() => {
-    axios.get("https://pt-finder.herokuapp.com/users").then((response) => {
+    axios.get("http://localhost:3000/users").then((response) => {
       const newArr = response.data;
       const user_id = localStorage.getItem("userId");
       const filteredObj = newArr.find((e) => e.id == user_id);
@@ -47,15 +47,13 @@ const Profile = () => {
 
   // The delete button in a message pop up. It will delete the user's account
   const deleteAccount = () => {
-    axios
-      .delete(`https://pt-finder.herokuapp.com/delete/${userId}`)
-      .then((response) => {
-        console.log("deleted");
-        localStorage.removeItem("token");
-        localStorage.removeItem("userId");
-        authCtx.logout();
-        history.push("/");
-      });
+    axios.delete(`http://localhost:3000/delete/${userId}`).then((response) => {
+      console.log("deleted");
+      localStorage.removeItem("token");
+      localStorage.removeItem("userId");
+      authCtx.logout();
+      history.push("/");
+    });
   };
 
   return (

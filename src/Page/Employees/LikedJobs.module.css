@@ -66,6 +66,10 @@ body {
   transition: 0.3s;
 }
 
+.applyBtn:hover {
+  color: #000;
+}
+
 .card:hover {
   transform: translateY(-5px);
   transition: 0.3s;

@@ -46,10 +46,13 @@
   min-height: 2.5rem;
   font-size: 1.2em;
   margin-bottom: 1rem;
+  color: #000;
+  width: 80%;
 }
 
 .input:focus {
   outline: none;
+  color: #000;
 }
 
 .editBtn {
@@ -70,7 +73,11 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 7px 20px;
-  color: #;
+  color: #000;
+}
+
+.saveBtn:hover {
+  color: #000;
 }
 
 .background {

@@ -62,7 +62,7 @@ const Resume = () => {
   };
 
   useEffect(() => {
-    axios.get("https://pt-finder.herokuapp.com/users").then((response) => {
+    axios.get("http://localhost:3000/users").then((response) => {
       const newArr = response.data;
       const user_id = localStorage.getItem("userId");
       const filteredObj = newArr.find((e) => e.id == user_id);
@@ -84,7 +84,7 @@ const Resume = () => {
   const saveClickHandler = (index, id) => {
     if (isLoggedIn) {
       axios
-        .put("https://pt-finder.herokuapp.com/editresume", {
+        .put("http://localhost:3000/editresume", {
           firstname: firstname,
           lastname: lastname,
           phonenumber: phonenumber,
@@ -122,6 +122,7 @@ const Resume = () => {
                 setFirstname(e.target.value);
               }}
               placeholder={firstnameRef}
+              className={classes.input}
             />
           </div>
           <div>
@@ -134,6 +135,7 @@ const Resume = () => {
                 setLastname(e.target.value);
               }}
               placeholder={lastnameRef}
+              className={classes.input}
             />
           </div>
           <div>
@@ -144,6 +146,7 @@ const Resume = () => {
                 setPhoneNumber(e.target.value);
               }}
               placeholder={phoneRef}
+              className={classes.input}
             />
           </div>
           <div>
@@ -154,6 +157,7 @@ const Resume = () => {
                 setHeadline(e.target.value);
               }}
               placeholder={headlineRef}
+              className={classes.input}
             />
           </div>
           <div>
@@ -163,6 +167,7 @@ const Resume = () => {
                 setSummary(e.target.value);
               }}
               placeholder={summaryRef}
+              className={classes.textarea}
             />
           </div>
           <div>
@@ -173,6 +178,7 @@ const Resume = () => {
                 setCity(e.target.value);
               }}
               placeholder={cityRef}
+              className={classes.input}
             />
           </div>
           <div>
@@ -182,6 +188,7 @@ const Resume = () => {
                 setState(e.target.value);
               }}
               placeholder={stateRef}
+              className={classes.input}
             >
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
@@ -244,6 +251,7 @@ const Resume = () => {
                 setZipCode(e.target.value);
               }}
               placeholder={zipcodeRef}
+              className={classes.input}
             />
           </div>
           <h2>Work experience</h2>
@@ -259,6 +267,7 @@ const Resume = () => {
                     name="jobtitle"
                     value={inputField.jobtitle}
                     onChange={(e) => handleChangeInput(index, e)}
+                    className={classes.input}
                   />
                   <label className={classes.inputLabel}>Company</label>
                   <input
@@ -266,12 +275,14 @@ const Resume = () => {
                     name="company"
                     value={inputField.company}
                     onChange={(e) => handleChangeInput(index, e)}
+                    className={classes.input}
                   />
                   <label className={classes.inputLabel}>Description</label>
                   <textarea
                     name="description"
                     value={inputField.description}
                     onChange={(e) => handleChangeInput(index, e)}
+                    className={classes.textarea}
                   />
                   <label className={classes.inputLabel} htmlFor="start">
                     From
@@ -284,6 +295,7 @@ const Resume = () => {
                     max="2022-12"
                     value={inputField.start}
                     onChange={(e) => handleChangeInput(index, e)}
+                    className={classes.input}
                   />
                   <label className={classes.inputLabel} htmlFor="end">
                     To
@@ -296,6 +308,7 @@ const Resume = () => {
                     max="2022-12"
                     value={inputField.end}
                     onChange={(e) => handleChangeInput(index, e)}
+                    className={classes.input}
                   />
 
                   <IconButton onClick={() => removeClickHandler(index)}>
