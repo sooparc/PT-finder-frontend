@@ -14,7 +14,7 @@ Backend - Heroku
 Are you looking for part time jobs & one time jobs?\
 Or are you looking to hire someone to work for you? Please check out my website below.
 
-Website- https://thriving-gnome-8f51ab.netlify.app/
+Website- https://thriving-gnome-8f51ab.netlify.app
 
 <img width="1440" alt="Screen Shot 2022-06-08 at 6 27 32 PM" src="https://user-images.githubusercontent.com/94145361/172745191-e73c07de-0d6c-4f26-8826-40feaeca5a75.png">
 
